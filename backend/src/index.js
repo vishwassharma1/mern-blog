@@ -3,11 +3,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const blogRoutes = require('./routes/blogRoutes');
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://vsharma7100:BSA%40vish%40123@nodeapp.pioapum.mongodb.net/wanderon?retryWrites=true&w=majority&appName=nodeApp', {
+mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
